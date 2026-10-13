@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROLAND VON ALLEN T. SALCEDO - Senior Premedia Artist & QC Specialist</title>
+    <style>
+        :root {
+            --fb-bg: #F0F2F5;
+            --fb-card-bg: #FFFFFF;
+            --fb-text-main: #050505;
+            --fb-text-secondary: #65676B;
+            --fb-border: #CED0D4;
+            --fb-hover: #F2F2F2;
+            --fb-blue: #1877F2;
+            --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--fb-bg);
+            color: var(--fb-text-main);
+            font-family: var(--font-family);
+            line-height: 1.45;
+            padding: 24px 12px;
+            font-size: 14px;
+        }
+
+        .cv-container {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Card / Box Styling */
+        .fb-card {
+            background-color: var(--fb-card-bg);
+            border-radius: 12px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            padding: 20px 24px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Header Card */
+        .header-card {
+            text-align: center;
+            padding-bottom: 24px;
+        }
+
+        .header-card h1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--fb-text-main);
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .header-card h2 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--fb-blue);
+            margin-bottom: 12px;
+        }
+
+        .contact-info {
+            font-size: 13px;
+            color: var(--fb-text-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 16px;
+        }
+
+        .contact-info span::after {
+            content: "•";
+            margin-left: 16px;
+            color: var(--fb-border);
+        }
+
+        .contact-info span:last-child::after {
+            content: "";
+            margin-left: 0;
+        }
+
+        .contact-info a {
+            color: var(--fb-blue);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--fb-text-main);
+            padding-bottom: 8px;
+            margin-bottom: 14px;
+            border-bottom: 1px solid var(--fb-bg);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Summary Section */
+        .summary-text {
+            color: var(--fb-text-main);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .skill-category {
+            background-color: var(--fb-bg);
+            border-radius: 8px;
+            padding: 10px 14px;
+        }
+
+        .skill-category strong {
+            display: block;
+            font-size: 13px;
+            color: var(--fb-text-main);
+            margin-bottom: 4px;
+        }
+
+        .skill-category span {
+            font-size: 13px;
+            color: var(--fb-text-secondary);
+        }
+
+        /* Experience Items */
+        .job-item {
+            margin-bottom: 18px;
+        }
+
+        .job-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 2px;
+        }
+
+        .job-title {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--fb-text-main);
+        }
+
+        .job-date {
+            font-size: 13px;
+            color: var(--fb-text-secondary);
+            font-weight: 500;
+        }
+
+        .job-company {
+            font-size: 13px;
+            color: var(--fb-blue);
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .job-bullets {
+            list-style-type: disc;
+            padding-left: 18px;
+            color: var(--fb-text-secondary);
+            font-size: 13.5px;
+        }
+
+        .job-bullets li {
+            margin-bottom: 4px;
+        }
+
+        /* Education */
+        .edu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .edu-degree {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--fb-text-main);
+        }
+
+        .edu-school {
+            font-size: 13px;
+            color: var(--fb-text-secondary);
+        }
+
+        /* Print optimization */
+        @media print {
+            body {
+                background-color: #FFFFFF;
+                padding: 0;
+            }
+            .cv-container {
+                max-width: 100%;
+                gap: 10px;
+            }
+            .fb-card {
+                box-shadow: none;
+                border: 1px solid #DFDFDF;
+                break-inside: avoid;
+                padding: 14px 18px;
+            }
+            .skill-category {
+                background-color: #F8F9FA;
+                border: 1px solid #E4E6EB;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+
+    <!-- HEADER CARD -->
+    <div class="fb-card header-card">
+        <h1>ROLAND VON ALLEN T. SALCEDO</h1>
+        <h2>Senior Premedia Artist & Quality Control Specialist</h2>
+        <div class="contact-info">
+            <span>Marikina City, Metro Manila, Philippines</span>
+            <span>09454098246</span>
+            <span><a href="mailto:salcedoallen2015@gmail.com">salcedoallen2015@gmail.com</a></span>
+            <span><a href="#" target="_blank">Portfolio Link</a></span>
+        </div>
+    </div>
+
+    <!-- PROFESSIONAL SUMMARY CARD -->
+    <div class="fb-card">
+        <div class="section-title">Professional Summary</div>
+        <p class="summary-text">
+            Highly versatile and results-driven Senior Premedia Artist and Quality Control Specialist with 13+ years of extensive experience specializing in high-precision pre-press production, global packaging artwork, color management, and brand governance. Proven technical expert and quality gatekeeper for major international accounts (including Coca-Cola, Unilever, P&G, and J&J), combining advanced creative execution with rigorous print-readiness validation. Adept at cross-functional team leadership, workflow optimization, and ensuring strict adherence to multi-substrate printing constraints.
+        </p>
+    </div>
+
+    <!-- TECHNICAL PROFICIENCY CARD -->
+    <div class="fb-card">
+        <div class="section-title">Technical Proficiency</div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <strong>Design & Creative Software</strong>
+                <span>Adobe Creative Suite (Illustrator, Photoshop, InDesign, Acrobat Pro, Dimension), Canva, Figma, Adobe Express, Brevo</span>
+            </div>
+            <div class="skill-category">
+                <strong>Pre-Press & Production Software</strong>
+                <span>Enfocus PitStop Pro, Esko Pilot, PACKZ, Proofscope, CloudFlow</span>
+            </div>
+            <div class="skill-category">
+                <strong>Video Editing & Office Productivity</strong>
+                <span>Premiere Pro, CapCut, Microsoft Office Suite (Word, Excel, PowerPoint)</span>
+            </div>
+            <div class="skill-category">
+                <strong>Core Competencies</strong>
+                <span>Pre-press Production, Color Management, Quality Assurance & Control, Packaging Dielines, Separation/CTP Operations, Brand Compliance, Digital Asset Management</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROFESSIONAL EXPERIENCE CARD -->
+    <div class="fb-card">
+        <div class="section-title">Professional Experience</div>
+
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Senior Premedia Artist & Quality Control Specialist</span>
+                <span class="job-date">Sep 2025 – Present</span>
+            </div>
+            <div class="job-company">SGX Graphics (SGK / SGS & Co) | Mandaluyong, NCR, Philippines (Remote / Hybrid)</div>
+            <ul class="job-bullets">
+                <li>Direct high-precision premedia quality control and prepress validation for global packaging artwork under SGX (uniting SGK and SGS & Co).</li>
+                <li>Serve as the final gatekeeper for technical print execution, brand compliance, and print-ready file integrity across diverse packaging substrates and print processes.</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Graphic Designer (Contract)</span>
+                <span class="job-date">Sep 2024 – Jan 2025</span>
+            </div>
+            <div class="job-company">TDJ Australia Pty Ltd | Pasig, NCR, Philippines (On-site)</div>
+            <ul class="job-bullets">
+                <li>Managed end-to-end digital asset production, packaging development, and promotional collateral for automotive accessories (dashcams, digital dashboard LCDs, wireless modules, and sound systems).</li>
+                <li>Executed advanced product post-processing, precise color correction, and clipping paths for raw photography to populate company asset management systems.</li>
+                <li>Developed folding carton packaging from scratch, designing structural dielines, ensuring compliance with Australian packaging guidelines, and rendering 3D digital mockups.</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Creative Artworker</span>
+                <span class="job-date">Jul 2023 – Sep 2024</span>
+            </div>
+            <div class="job-company">Hogarth | Taguig, NCR, Philippines (Hybrid)</div>
+            <ul class="job-bullets">
+                <li>Maintained rigorous quality assurance and brand governance over high-volume artwork production for global accounts like Coca-Cola APAC, ensuring strict adherence to brand guidelines.</li>
+                <li>Supported production management by mentoring junior team members, sharing technical documentation, and guiding creative execution.</li>
+                <li>Streamlined studio resource utilization by autonomously managing heavy workloads and proactively communicating production capacity status.</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Freelance Graphic Designer / PrePress / MockUp Specialist</span>
+                <span class="job-date">Jun 2022 – Jul 2023</span>
+            </div>
+            <div class="job-company">Upwork | Remote</div>
+            <ul class="job-bullets">
+                <li>Spearheaded the complete lifecycle of print and digital collateral from initial concept and typography selection through advanced prepress execution and strict quality assurance.</li>
+                <li>Partnered directly with international clients (Singapore, LA, NY) to translate complex requirements into timely, high-impact design solutions across diverse media.</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Artwork Quality Control Operator / Senior Pre-media Artist</span>
+                <span class="job-date">Mar 2021 – Jun 2023</span>
+            </div>
+            <div class="job-company">SGK Manila (Matthews International) | Philippines (Hybrid)</div>
+            <ul class="job-bullets">
+                <li>Directed detailed quality control reviews for high-volume artwork files, checking precision across design elements, fonts, colors, barcodes, and regulatory requirements.</li>
+                <li>Validated technical file aspects including bleed, trim marks, high-resolution formats, and multi-printing process compatibility for global accounts such as J&J (NCL and Brazil) and Safeway.</li>
+                <li>Produced complex packaging designs and incorporated stringent global branding guidelines while improving communication pipelines between international project teams.</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Hybrid Operator / Production Artist</span>
+                <span class="job-date">Oct 2018 – Jun 2021</span>
+            </div>
+            <div class="job-company">SGS & Co | Mandaluyong / Remote</div>
+            <ul class="job-bullets">
+                <li>Managed multi-market packaging artwork production for key international accounts including Unilever EU, Coca-Cola, and Unilever RUS.</li>
+                <li>Controlled the complete prepress workflow—from amending legacy designs and creating structural builds to checking printability specifications and color consistency.</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Graphic Designer / Layout Artist (Contract)</span>
+                <span class="job-date">Sep 2017 – Sep 2019</span>
+            </div>
+            <div class="job-company">Phoenix Publishing House, Inc. | Quezon City (On-site)</div>
+            <ul class="job-bullets">
+                <li>Executed rigorous premedia editorial quality control, text review, copy correction, and technical vector creation for educational publications.</li>
+                <li>Streamlined page layouts and material structuring while enforcing strict internal house styling standards.</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Graphic Designer (Page Planner / Paginator)</span>
+                <span class="job-date">Jan 2016 – Apr 2017</span>
+            </div>
+            <div class="job-company">AffinityX | On-site</div>
+            <ul class="job-bullets">
+                <li>Designed and prepared multimedia, web, and print newspaper ad pages, ensuring complete compliance with typography, color models, and pagination specs.</li>
+            </ul>
+        </div>
+
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Graphic Artist</span>
+                <span class="job-date">Mar 2012 – Dec 2015</span>
+            </div>
+            <div class="job-company">Colorseps | Quezon City, NCR, Philippines (On-site)</div>
+            <ul class="job-bullets">
+                <li>Handled end-to-end prepress workflows including complex color separations, CTP/CTF processing, and direct UV printing operations utilizing the Fujifilm Acuity LED 1600.</li>
+                <li>Developed structural layouts and executed direct printing processes across rigid and flexible substrates (canvas, acrylic, metal, wood, clear plastic).</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- EDUCATION CARD -->
+    <div class="fb-card">
+        <div class="section-title">Education</div>
+        <div class="edu-item">
+            <div>
+                <div class="edu-degree">Bachelor of Fine Arts Major in Advertising</div>
+                <div class="edu-school">University of the East – Caloocan Campus</div>
+            </div>
+            <span class="job-date">2010 – 2014</span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
